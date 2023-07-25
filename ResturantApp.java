@@ -1,5 +1,3 @@
-package Resturaunt;
-
 import java.util.Scanner;
 
 class hotelNmae{
