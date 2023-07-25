@@ -1,11 +1,21 @@
 package Resturaunt;
 
 import java.util.Scanner;
-class hotelDetail{
+
+class hotelNmae{
+	public void hotelName()
 	{
-		System.out.println("Welcome to HOTEL");
+		 System.out.println("-----------------------------------------");
+		//System.out.println(" \u001B[36m        WELCOMR TO Zen & Out");
+		 System.out.println("          WELCOME TO Zen & Out");
+		 System.out.println("                                   Mathikere Bnaglore");
+		System.out.print("\u001B[37m");
+		 System.out.println("-----------------------------------------");
+	
+		System.out.println("-----------------------------------------");
 		String gstno="29CCFPJ5208Q19Z8";
-		System.out.println("GST number is "+gstno);
+		System.out.println("GST number : "+gstno);
+		System.out.println("-----------------------------------------");
 	}
 }
 class DetailsOfCustomer{
@@ -19,7 +29,7 @@ class DetailsOfCustomer{
 	  String ans;
 	  
 	  float gst;
-	  float bill;
+	  float bill,bill1,s,b1,b2,b3,b4,b5;
 	   String s1="TANDOORI ROTI";
 	   String s2="BUTTER NAAN";
 	   String s3="CHOLE BHATURE";
@@ -31,6 +41,7 @@ class DetailsOfCustomer{
 		   
 	   Scanner sc=new Scanner(System.in);
 	   public void details() {
+		   System.out.println("Please provide your details");
 		   System.out.println("Enter your name:");
 		   name=sc.nextLine();
 		   System.out.println("enter your age:");
@@ -57,13 +68,13 @@ class DetailsOfCustomer{
 			  System.out.println("Do you wish to continue for order(y/n)");
 	          ans=sc.next().toLowerCase();
 			  if(ans.equalsIgnoreCase("y")) {
-    	   System.out.println("Enter your choice of food;");
+    	   System.out.println("Enter your choice of food:");
            choice=sc.nextInt();
            switch (choice) {
            
            case 1:
         	   a=s1;
-        	   System.out.println(a);
+        	   System.out.println("YOUR ORDER IS :"+a);
         	   System.out.println("Enter total plate");
         	   count1+=sc.nextInt();
         	   System.out.println("Total plate"+" "+count1);
@@ -71,7 +82,7 @@ class DetailsOfCustomer{
         		break;
 		     case 2:
         	   b=s2;
-        	   System.out.println(b);
+        	   System.out.println("YOUR ORDER IS :"+b);
         	   System.out.println("Enter total plate");
         	   count2+=sc.nextInt();
         	   System.out.println("Total plate"+" "+count2);
@@ -79,7 +90,7 @@ class DetailsOfCustomer{
           		break;
 		case 3:
         	   c=s3;
-        	   System.out.println(c);
+        	   System.out.println("YOUR ORDER IS :"+c);
         	   System.out.println("Enter total plate");
         	   count3+=sc.nextInt();
         	   System.out.println("Total plate"+" "+count3);
@@ -87,7 +98,7 @@ class DetailsOfCustomer{
         	   break;
            case 4:
         	   d=s4;
-        	   System.out.println(d);
+        	   System.out.println("YOUR ORDER IS :"+d);
         	   System.out.println("Enter total plate");
         	   count4+=sc.nextInt();
         	   System.out.println("Total plate"+" "+count4);
@@ -95,72 +106,78 @@ class DetailsOfCustomer{
         	   break;
         	default: 
         		System.out.println("Item not found");
-        		count=count1+count2+count3+count4;
         		break;
            }
           
 			  }
-           
+			  else{
+				 // System.out.print("\u001B[37m");
+				  System.out.println("\u001B[31mTHANK YOU ");
+				  System.out.print("\u001B[37m");
+				return; 
+			  }
+			  count=count1+count2+count3+count4;
 		  }while(ans.equalsIgnoreCase("y"));
-		  
-         //  return;
-}
+	  }
 	   void showOrderDetails() {
-		   System.out.println("DO YOU WISH TO SEE ORDER DETAILS(y/n)");
+		   System.out.println("DO YOU WISH TO CONTINUE FOR BILL(y/n)");
 	          ans=sc.next().toLowerCase();
 			  if(ans.equalsIgnoreCase("y")) {
-			   count5=count+count1+count2+count3+count4; 
-		 System.out.println("----------------------------------------------------------------------------------------------");
-		  System.out.println("Your total plate of order" +" "+"TANDOORI ROTI"+" "+"is"+"  "+count1);
-		  System.out.println("Your total plate of order"+" "+"BUTTER NAAN" +" "+"is"+"  "+count2);
-		  System.out.println("Your total plate of order"+" "+"CHOLE BHATURE" +" "+"is"+"  "+count3);
-		  System.out.println("Your total plate of order"+" "+"NORTH INDIAN MEALS" +" "+"is"+"  "+count4);
-		  System.out.println("----------------------------------------------------------------------------------------------");
-	   }
-			  //
-	   }
+			   count5=count+count1+count2+count3+count4;
+	   }		
+				  else {
+					 // System.out.println("\u001B[32m                THANK YOU VISIT AGAIN");
+					  System.out.println("            THANK YOU VISIT AGAIN");
+					   System.out.print("\u001B[37m");
+					  System.exit(0);
+				  }
+			  }
+	   
 	   public void bill() {
-		   System.out.println("Do you wish to continue for bill(y/n)");
-	          ans=sc.next().toLowerCase();
-			  if(ans.equalsIgnoreCase("y")) {
+		  
 		   System.out.println("----------------------------------------------------------------------------------------------");
 		   System.out.println("YOUR BILL IS ");
-				System.out.println("Bill amount without gst is "+count5*f1);
-				bill=count5*(f1+(f1*18.00f/100));
-				System.out.println("Bill amount with 18% gst is "+bill);
-				 System.out.println("----------------------------------------------------------------------------------------------");
+		   s=count1;
+		   b1=count2;
+		   b2=count3;
+		   b4=count4;
+		   bill=s*f1+b1*f2+b2*f3+b4*f4;
+		 
+			System.out.println("Bill amount without gst is "+bill);
 				
-	   }
-			  else {
-					System.err.println("INVALID CHOICE"); 
-				 }
+				b5=(bill+(bill*9.00f/100));
+				bill1=(bill*9.00f/100)+b5;
+				System.out.println("Bill amount with 9% cgst is "+b5);
+				System.out.println("Bill amount with 9% sgst is "+bill1);
+				 System.out.println("----------------------------------------------------------------------------------------------");
+
+				   System.out.println("\u001B[32m                THANK YOU VISIT AGAIN");
+				   System.out.print("\u001B[37m");
+			  
 	   }
 	   void dispDetails() {
+		   System.out.println("----------------------------------------------------------------------------------------------");
 		   System.out.println("Customer details are:");
 		   System.out.println("Customer name is "+name);
 		   System.out.println("Customer age is "+age);
 		   System.out.println("Customer phno is "+phno);
 		   System.out.println("----------------------------------------------------------------------------------------------");
-		   System.out.println("YOUR ORDERS ARE");
-		   System.out.println("Your total plate of order" +" "+"TANDOORI ROTI"+" "+"is"+"  "+count1);
-			  System.out.println("Your total plate of order"+" "+"BUTTER NAAN" +" "+"is"+"  "+count2);
-			  System.out.println("Your total plate of order"+" "+"CHOLE BHATURE" +" "+"is"+"  "+count3);
-			  System.out.println("Your total plate of order"+" "+"NORTH INDIAN MEALS" +" "+"is"+"  "+count4);
-			 System.out.println("----------------------------------------------------------------------------------------------");
-             System.err.println("THANK YOU");
+
 	   }
 }
 public class ResturantApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		Scanner sc=new Scanner(System.in);
-		hotelDetail h=new hotelDetail();
+		hotelNmae h=new hotelNmae();
+		h.hotelName();
 		DetailsOfCustomer d= new DetailsOfCustomer();
-		   d.details();
+		 //  d.details();
 		int choice1;
 		 System.out.println("enter your choice");
-		   System.out.println("1.MENU DETAILS\n2.ORDER FOOD\n3.ORDER DETAILS\n4.BILL\n5.USER DETAILS\\n");
+		   System.out.println("1.MENU DETAILS\n2.ORDER FOOD\n3.ORDER DETAILS\n4.BILL");
 		   choice1=sc.nextInt();
 		   switch (choice1) {
 		   case 1:
@@ -175,14 +192,9 @@ public class ResturantApp {
 		   case 4:
 			   d.bill();
 			  // break;
-		   case 5:
-			   d.dispDetails();
-			   break;
 			 default:
 				 break;
 		   }
-		    
-			
 			
 	}
 }
