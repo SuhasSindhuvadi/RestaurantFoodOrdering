@@ -6,7 +6,7 @@ class hotelNmae{
 	public void hotelName()
 	{
 		 System.out.println("-----------------------------------------");
-		//System.out.println(" \u001B[36m        WELCOMR TO Zen & Out");
+		System.out.println(" \u001B[36m        WELCOMR TO Zen & Out");
 		 System.out.println("          WELCOME TO Zen & Out");
 		 System.out.println("                                   Mathikere Bnaglore");
 		System.out.print("\u001B[37m");
@@ -111,7 +111,7 @@ class DetailsOfCustomer{
           
 			  }
 			  else{
-				 // System.out.print("\u001B[37m");
+				  System.out.print("\u001B[37m");
 				  System.out.println("\u001B[31mTHANK YOU ");
 				  System.out.print("\u001B[37m");
 				return; 
@@ -126,7 +126,7 @@ class DetailsOfCustomer{
 			   count5=count+count1+count2+count3+count4;
 	   }		
 				  else {
-					 // System.out.println("\u001B[32m                THANK YOU VISIT AGAIN");
+					  System.out.println("\u001B[32m                THANK YOU VISIT AGAIN");
 					  System.out.println("            THANK YOU VISIT AGAIN");
 					   System.out.print("\u001B[37m");
 					  System.exit(0);
@@ -174,7 +174,7 @@ public class ResturantApp {
 		hotelNmae h=new hotelNmae();
 		h.hotelName();
 		DetailsOfCustomer d= new DetailsOfCustomer();
-		 //  d.details();
+		   d.details();
 		int choice1;
 		 System.out.println("enter your choice");
 		   System.out.println("1.MENU DETAILS\n2.ORDER FOOD\n3.ORDER DETAILS\n4.BILL");
