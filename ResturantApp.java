@@ -1,11 +1,13 @@
+package Resturaunt;
+
 import java.util.Scanner;
 
-class hotelNmae{
+class Name{
 	public void hotelName()
 	{
 		 System.out.println("-----------------------------------------");
 		System.out.println(" \u001B[36m        WELCOMR TO Zen & Out");
-		 System.out.println("          WELCOME TO Zen & Out");
+		 System.out.print("\u001B[37m");
 		 System.out.println("                                   Mathikere Bnaglore");
 		System.out.print("\u001B[37m");
 		 System.out.println("-----------------------------------------");
@@ -16,7 +18,7 @@ class hotelNmae{
 		System.out.println("-----------------------------------------");
 	}
 }
-class DetailsOfCustomer{
+class CustomerDetail extends Thread{
 	String name;
 	   int age;
 	   long phno;
@@ -45,8 +47,9 @@ class DetailsOfCustomer{
 		   System.out.println("enter your age:");
 		   age=sc.nextInt();
 		   System.out.println("enter your Phone Number:");
-		   phno=sc.nextLong();   
-	   }
+		   phno=sc.nextLong();
+		   }
+	   
 	   public void menuDetails() {
 		   System.out.println("What do you like to have :");
 		   System.out.println("MENU");
@@ -130,6 +133,12 @@ class DetailsOfCustomer{
 					  System.exit(0);
 				  }
 			  }
+	   public void foodPrepare() {
+		   System.out.println("FOOD IS PREPARING");
+	   }
+	   public void foodReady() {
+		   System.out.println("FOOD IS READY AND SERVED");
+	   }
 	   
 	   public void bill() {
 		  
@@ -163,17 +172,17 @@ class DetailsOfCustomer{
 
 	   }
 }
-public class ResturantApp {
+public class ResturantManage  {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		
 		Scanner sc=new Scanner(System.in);
-		hotelNmae h=new hotelNmae();
+		Name h=new Name();
 		h.hotelName();
-		DetailsOfCustomer d= new DetailsOfCustomer();
+		CustomerDetail d= new CustomerDetail();
 		   d.details();
 		int choice1;
+		System.out.println();
 		 System.out.println("enter your choice");
 		   System.out.println("1.MENU DETAILS\n2.ORDER FOOD\n3.ORDER DETAILS\n4.BILL");
 		   choice1=sc.nextInt();
@@ -184,6 +193,11 @@ public class ResturantApp {
 		   case 2:
 			   d.addDetails();
 			   //break;
+			   try {Thread.sleep(1000);}catch(InterruptedException e) {System.out.println(e.getLocalizedMessage());}
+			   d.foodPrepare();
+			   try {Thread.sleep(2500);}catch(InterruptedException e) {System.out.println(e.getLocalizedMessage());}
+                d.foodReady();
+ 			   try {Thread.sleep(2000);}catch(InterruptedException e) {System.out.println(e.getLocalizedMessage());}
 		   case 3:
 			   d.showOrderDetails();
 			  // break;
@@ -193,6 +207,6 @@ public class ResturantApp {
 			 default:
 				 break;
 		   }
-			
 	}
+
 }
