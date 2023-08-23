@@ -2,22 +2,21 @@ package Resturaunt;
 
 import java.util.Scanner;
 
-class Name{
+class hotelNmae{
 	public void hotelName()
 	{
 		 System.out.println("-----------------------------------------");
 		System.out.println(" \u001B[36m        WELCOMR TO Zen & Out");
-		 System.out.print("\u001B[37m");
 		System.out.print("\u001B[37m");
 		 System.out.println("-----------------------------------------");
 	
 		System.out.println("-----------------------------------------");
-		String gstno="29CCFPJ5208Q19Z8";
+		String gstno="29CCFPJ5209A19Z8";
 		System.out.println("GST number : "+gstno);
 		System.out.println("-----------------------------------------");
 	}
 }
-class CustomerDetail extends Thread{
+class DetailsOfCustomer extends Thread{
 	String name;
 	   int age;
 	   long phno;
@@ -46,9 +45,9 @@ class CustomerDetail extends Thread{
 		   System.out.println("enter your age:");
 		   age=sc.nextInt();
 		   System.out.println("enter your Phone Number:");
-		   phno=sc.nextLong();
-		   }
-	   
+		   phno=sc.nextLong();   
+	   		  
+	   }
 	   public void menuDetails() {
 		   System.out.println("What do you like to have :");
 		   System.out.println("MENU");
@@ -75,7 +74,7 @@ class CustomerDetail extends Thread{
            case 1:
         	   a=s1;
         	   System.out.println("YOUR ORDER IS :"+a);
-        	   System.out.println("Enter total plate");
+        	   System.out.println("Enter total plate:");
         	   count1+=sc.nextInt();
         	   System.out.println("Total plate"+" "+count1);
         	   ss=1;
@@ -91,7 +90,7 @@ class CustomerDetail extends Thread{
 		case 3:
         	   c=s3;
         	   System.out.println("YOUR ORDER IS :"+c);
-        	   System.out.println("Enter total plate");
+        	   System.out.println("Enter total plate:");
         	   count3+=sc.nextInt();
         	   System.out.println("Total plate"+" "+count3);
         	   ss2=1;
@@ -99,7 +98,7 @@ class CustomerDetail extends Thread{
            case 4:
         	   d=s4;
         	   System.out.println("YOUR ORDER IS :"+d);
-        	   System.out.println("Enter total plate");
+        	   System.out.println("Enter total plate:");
         	   count4+=sc.nextInt();
         	   System.out.println("Total plate"+" "+count4);
         	   ss3=1;
@@ -113,7 +112,7 @@ class CustomerDetail extends Thread{
 			  else{
 				  System.out.print("\u001B[37m");
 				  System.out.println("\u001B[31mTHANK YOU ");
-				  System.out.print("\u001B[37m");
+				 System.out.print("\u001B[37m");
 				return; 
 			  }
 			  count=count1+count2+count3+count4;
@@ -126,10 +125,7 @@ class CustomerDetail extends Thread{
 			   count5=count+count1+count2+count3+count4;
 	   }		
 				  else {
-					  System.out.println("\u001B[32m                THANK YOU VISIT AGAIN");
-					  System.out.println("            THANK YOU VISIT AGAIN");
-					   System.out.print("\u001B[37m");
-					  System.exit(0);
+					  addDetails();
 				  }
 			  }
 	   public void foodPrepare() {
@@ -148,7 +144,9 @@ class CustomerDetail extends Thread{
 		   b2=count3;
 		   b4=count4;
 		   bill=s*f1+b1*f2+b2*f3+b4*f4;
-		 
+		  // dispDetails();
+		   System.out.println("----------------------------------------------------------------------------------------------");
+
 			System.out.println("Bill amount without gst is "+bill);
 				
 				b5=(bill+(bill*9.00f/100));
@@ -163,7 +161,7 @@ class CustomerDetail extends Thread{
 	   }
 	   void dispDetails() {
 		   System.out.println("----------------------------------------------------------------------------------------------");
-		   System.out.println("Customer details are:");
+		   System.out.println("Customer details");
 		   System.out.println("Customer name is "+name);
 		   System.out.println("Customer age is "+age);
 		   System.out.println("Customer phno is "+phno);
@@ -171,41 +169,35 @@ class CustomerDetail extends Thread{
 
 	   }
 }
-public class ResturantManage  {
+public class ResturantApp {
 
-	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		Name h=new Name();
+		hotelNmae h=new hotelNmae();
 		h.hotelName();
-		CustomerDetail d= new CustomerDetail();
-		   d.details();
+		DetailsOfCustomer d= new DetailsOfCustomer();
+		  d.details();
 		int choice1;
-		System.out.println();
 		 System.out.println("enter your choice");
 		   System.out.println("1.MENU DETAILS\n2.ORDER FOOD\n3.ORDER DETAILS\n4.BILL");
 		   choice1=sc.nextInt();
 		   switch (choice1) {
 		   case 1:
 			   d.menuDetails();
-			  // break;
 		   case 2:
 			   d.addDetails();
-			   //break;
 			   try {Thread.sleep(1000);}catch(InterruptedException e) {System.out.println(e.getLocalizedMessage());}
 			   d.foodPrepare();
-			   try {Thread.sleep(2500);}catch(InterruptedException e) {System.out.println(e.getLocalizedMessage());}
+			   try {Thread.sleep(2700);}catch(InterruptedException e) {System.out.println(e.getLocalizedMessage());}
                 d.foodReady();
- 			   try {Thread.sleep(2000);}catch(InterruptedException e) {System.out.println(e.getLocalizedMessage());}
+ 			   try {Thread.sleep(3500);}catch(InterruptedException e) {System.out.println(e.getLocalizedMessage());}
 		   case 3:
 			   d.showOrderDetails();
-			  // break;
 		   case 4:
 			   d.bill();
-			  // break;
 			 default:
 				 break;
 		   }
+			
 	}
-
 }
