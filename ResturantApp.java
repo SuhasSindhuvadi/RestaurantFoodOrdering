@@ -8,7 +8,6 @@ class Name{
 		 System.out.println("-----------------------------------------");
 		System.out.println(" \u001B[36m        WELCOMR TO Zen & Out");
 		 System.out.print("\u001B[37m");
-		 System.out.println("                                   Mathikere Bnaglore");
 		System.out.print("\u001B[37m");
 		 System.out.println("-----------------------------------------");
 	
